@@ -98,8 +98,12 @@ h6 {
 /* Styles */
 
 body {
+  display: flex;
+  max-width: 1440px;
   font-family: "font-regular";
   margin: 2rem;
+  align-items: center;
+  justify-content: center;
   background-color: var(--light-grayish-blue);
 }
 
