@@ -110,7 +110,7 @@ body {
   grid-template-areas:
     "daniel daniel jonathan kira"
     "jeanette patrick patrick kira";
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .profile {
