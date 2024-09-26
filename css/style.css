@@ -1,0 +1,290 @@
+:root {
+  /* Primary */
+  --violat: #7541c8;
+  --dark-grayish-blue: #48556a;
+  --blackish-blue: #19212e;
+  --white: #ffffff;
+
+  /* Neutral */
+  --light-gray: #cfcfcf;
+  --light-grayish-blue: #ecf2f8;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: "font-regular";
+  src: url("../assets/font/BarlowSemiCondensed-Regular.ttf") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "font-medium";
+  src: url("../assets/font/BarlowSemiCondensed-Medium.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "font-bold";
+  src: url("../assets/font/BarlowSemiCondensed-Bold.ttf") format("woff2");
+}
+
+/* Styles */
+
+body {
+  font-family: "font-regular";
+  max-width: 1440px;
+  margin: 2rem;
+  background-color: var(--light-grayish-blue);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "daniel daniel jonathan kira"
+    "jeanette patrick patrick kira";
+  gap: 2rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin: 1.5rem 2rem;
+}
+
+.profile h4,
+.profile h5 {
+  line-height: 1.3;
+}
+
+.profile h5 {
+  opacity: 0.5;
+}
+
+.profile img {
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.card-daniel,
+.card-jonathan,
+.card-patrick,
+.card-jeanette,
+.card-kira {
+  max-height: 100vh;
+  border-radius: 0.5rem;
+}
+
+.card-daniel,
+.card-jonathan,
+.card-patrick {
+  color: var(--white);
+}
+
+.profile-quote {
+  font-family: "font-bold";
+  font-size: 1.4rem;
+  margin: 0.675rem 2rem;
+}
+
+.card-daniel {
+  grid-area: daniel;
+  position: relative;
+}
+
+.card-daniel::after {
+  content: url("../assets/images/bg-pattern-quotation.svg");
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 88px;
+}
+
+.card-daniel .profile-quote {
+  position: relative;
+  z-index: 1;
+}
+.profile-review {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.card-daniel .profile-img {
+  border: 2px solid rgba(117, 120, 200, 0.7);
+}
+
+.card-jonathan {
+  grid-area: jonathan;
+}
+
+.card-kira {
+  grid-area: kira;
+  max-height: 100%;
+}
+
+.card-kira .profile-quote {
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  color: var(--blackish-blue);
+}
+
+.card-jeanette {
+  grid-area: jeanette;
+}
+
+.card-jeanette .profile-quote {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: var(--dark-grayish-blue);
+  margin-bottom: 1.8rem;
+}
+
+.card-patrick {
+  grid-area: patrick;
+}
+
+.card-patrick img {
+  border: 2px solid var(--violat);
+}
+
+.purple {
+  background-color: var(--violat);
+}
+
+.grayish-blue {
+  background-color: var(--dark-grayish-blue);
+}
+
+.white {
+  background-color: var(--white);
+}
+
+.dark-blue {
+  background-color: var(--blackish-blue);
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "daniel"
+      "jonathan"
+      "jeanette"
+      "patrick"
+      "kira";
+  }
+
+  .profile-quote {
+    font-size: 2rem;
+  }
+
+  .profile-review {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "daniel"
+      "jonathan"
+      "jeanette"
+      "patrick"
+      "kira";
+  }
+
+  .card-daniel::after {
+    left: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-daniel::after {
+    left: 200px;
+  }
+
+  @media (max-width: 375px) {
+    .card-daniel::after {
+      display: none;
+    }
+
+    .card-patrick .profile-quote {
+      font-size: 1.3rem;
+    }
+
+    .card-jeanette .profile-quote {
+      font-size: 1.4rem;
+      margin-bottom: 0.675rem;
+    }
+  }
+}
